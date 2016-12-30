@@ -1,0 +1,34 @@
+* Design
+** A table has a number of games.
+** Players can join a table, and will be included once the current game has finished or when the next game is due to start
+** The minimum number of players in a game is 2.
+** A table has:
+*** The list of players
+*** The current game
+*** The history of games on that table
+** A player has:
+*** A stack (i.e. the amount they have to bet with)
+*** A name
+** A game has:
+*** The current blinds amount
+*** Current pot
+*** Current card pack
+** A game takes the following path:
+*** Players are assigned positions (could be based on the previous games positions) i.e. big blind, little blind etc
+*** Hands are dealt
+*** A round of betting/folding occurs in position order
+*** The flop is dealt
+*** A round of betting/folding occurs in position order
+*** The turn card is dealt
+*** A round of betting/folding occurs in position order
+*** The river is dealt
+*** A round of betting/folding occurs in position order
+* API calls
+** /table
+** /game
+*** POST /game/ - creates a game
+** /game/:id/deal - deals a hand of cards to each player
+** /game/:id/join/:player_id
+* /player
+** POST /player - creates a new player
+** /player/:id/bet - places a bet

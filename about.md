@@ -14,4 +14,8 @@ This project is here to teach me new tech, including:
 
 This project will consist of a web based engine, built with microservices (Spring boot), with various front ends. It will all be written in java, with the web front end being written with React, an Android app, and a desktop app using JavaFx.
 
+#Next actions:
+* Create Unix VM (Not docker due to disk disappearing)
+* Make the postgres database on the VM
+* Start the SQL install script
 

@@ -1,28 +1,78 @@
-* Design
-** A table has a number of games.
+* Design/Rules
+** A table has a current game, and a history of games.
 ** Players can join a table, and will be included once the current game has finished or when the next game is due to start
 ** The minimum number of players in a game is 2.
 ** A table has:
 *** The list of players
 *** The current game
 *** The history of games on that table
+*** Maximum number of players at a table (8)
+*** Current card pack
 ** A player has:
 *** A stack (i.e. the amount they have to bet with)
 *** A name
 ** A game has:
 *** The current blinds amount
 *** Current pot
-*** Current card pack
+*** The players in that game
+*** A number of rounds
+**** preflop, flop, turn, river
 ** A game takes the following path:
 *** Players are assigned positions (could be based on the previous games positions) i.e. big blind, little blind etc
 *** Hands are dealt
-*** A round of betting/folding occurs in position order
+*** A round of betting/folding occurs in position order until everyone is matched in the pot
 *** The flop is dealt
-*** A round of betting/folding occurs in position order
+*** A round of betting/folding occurs in position order until everyone is matched in the pot
 *** The turn card is dealt
-*** A round of betting/folding occurs in position order
+*** A round of betting/folding occurs in position order until everyone is matched in the pot
 *** The river is dealt
-*** A round of betting/folding occurs in position order
+*** A round of betting/folding occurs in position order until everyone is matched in the pot
+** If a player bets 50 and another player goes all in with only 30, then the first player gets 20 (the difference) back.
+** 3 players, player A has 50, player B has 60, player C has 20. If player C goes all in, and player A or B want to bet more, then a side pot is created. C can only win the main pot and only player A or B can win the side pot.
+* DB design
+** Table
+*** ID
+*** Date created
+*** Name
+*** Description
+*** Buy_in
+*** theme
+*** pack_theme
+** Game - A game in progress - not historical??
+*** Id
+*** TableID - a game can only exist on a table
+** Pot - Most of the time a game will only have one pot, but in order to support side pots, a game can have more than one pot.
+*** id
+*** game_id
+*** value - amount that is in the pot
+** pot_player
+*** pot_id
+*** player_id
+** round
+*** id
+*** round_type
+*** player_id
+*** bet_amount
+*** bet_type
+** round_type
+*** id
+*** name (preflop, flop, turn, river)
+** bet_type
+*** id
+*** name (call, raise, fold, allin, check)
+** Player
+*** ID
+*** Name
+*** Total number of chips (a player may have 10,000 chips, but only buy in to a table with 2,000)
+** table_player - a player can be on more than one table (it's a virtual world people!!)
+*** id
+*** table_id
+*** player_id
+** game_player
+*** game_id
+*** player_id
+** table_theme - colour schemes for tables
+** pack_theme - colour schemes for card fronts/backs
 * API calls
 ** /table
 ** /game

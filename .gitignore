@@ -1,12 +1,38 @@
 *.class
+*.bin
+.#*
+*.log
+*.lock
+*.jmx
+.gradle
+test-results
+build
+*.tar
+*\~
+gradle-wrapper.jar
+*gradlew*
+GPATH
+GRTAGS
+GTAGS
+TAGS
+tests/SOA/front/results
+swagger-codegen
+Hystrix
+.projectile
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Helper scripts #
+##################
+update-prod.sh
+update-qa.sh
+update-templates.sh
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+terminal.glue

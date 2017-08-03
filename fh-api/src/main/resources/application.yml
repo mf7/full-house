@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: api
+redis:
+  host: ${REDISHOST}
+  port: 6379
+
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 3
+    preferIpAddress: true
+  client:
+    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://${EUREKAHOST}:8761/eureka/

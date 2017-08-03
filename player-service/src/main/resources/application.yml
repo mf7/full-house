@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: player-service-${version}
+  datasource:
+    url: jdbc:postgresql://full_house_db:5432/fh
+    username: postgres
+    password:

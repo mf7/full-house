@@ -1,0 +1,14 @@
+ext {
+	mainClassName = 'fullhouse.ApiApplication'
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-data-redis")
+	compile("io.springfox:springfox-swagger2:2.7.0")
+    compile("io.springfox:springfox-swagger-ui:2.0.2")
+	testCompile 'io.springfox:springfox-staticdocs'
+	compile("org.springframework.session:spring-session-data-redis")
+    compile("org.springframework.data:spring-data-redis")
+
+	compile project(':model')
+}
